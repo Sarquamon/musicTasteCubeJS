@@ -1,31 +1,31 @@
 cube(`TSpotifyArtists`, {
   sql: `SELECT * FROM dbo."T_SPOTIFY_ARTISTS"`,
-  
-  joins: {
-    
-  },
-  
+
+  joins: {},
+
   measures: {
     count: {
       type: `count`,
-      drillMembers: [idArtist, artistName, createdAt]
-    }
+      drillMembers: [idArtist, artistName, createdAt],
+    },
   },
-  
+
   dimensions: {
     idArtist: {
       sql: `${CUBE}."ID_ARTIST"`,
-      type: `string`
+      type: `string`,
+      primaryKey: true,
     },
-    
+
     artistName: {
       sql: `${CUBE}."ARTIST_NAME"`,
-      type: `string`
+      type: `string`,
     },
-    
+
     createdAt: {
       sql: `${CUBE}."CREATED_AT"`,
-      type: `string`
-    }
-  }
+      type: `time`,
+      shown: false,
+    },
+  },
 });

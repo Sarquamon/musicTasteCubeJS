@@ -1,46 +1,53 @@
 cube(`TUsers`, {
   sql: `SELECT * FROM dbo."T_USERS"`,
-  
-  joins: {
-    
-  },
-  
+
+  joins: {},
+
   measures: {
-    count: {
+    totalUsers: {
       type: `count`,
-      drillMembers: [username, firstName, lastName, createdAt]
-    }
+      drillMembers: [username, useremail, createdAt],
+    },
   },
-  
+
   dimensions: {
+    idUser: {
+      sql: `${CUBE}."ID_USER"`,
+      type: `number`,
+      primaryKey: true,
+    },
     username: {
       sql: `${CUBE}."USERNAME"`,
-      type: `string`
+      type: `string`,
     },
-    
+
     useremail: {
       sql: `${CUBE}."USEREMAIL"`,
-      type: `string`
+      type: `string`,
     },
-    
+
     userpwd: {
       sql: `${CUBE}."USERPWD"`,
-      type: `string`
+      type: `string`,
+      shown: false,
     },
-    
+
     firstName: {
       sql: `${CUBE}."FIRST_NAME"`,
-      type: `string`
+      type: `string`,
+      shown: false,
     },
-    
+
     lastName: {
       sql: `${CUBE}."LAST_NAME"`,
-      type: `string`
+      type: `string`,
+      shown: false,
     },
-    
+
     createdAt: {
       sql: `${CUBE}."CREATED_AT"`,
-      type: `string`
-    }
-  }
+      type: `time`,
+      shown: false,
+    },
+  },
 });

@@ -1,26 +1,32 @@
 cube(`TDatetimes`, {
   sql: `SELECT * FROM dbo."T_DATETIMES"`,
-  
-  joins: {
-    
-  },
-  
+
+  joins: {},
+
   measures: {
     count: {
       type: `count`,
-      drillMembers: [datetime]
-    }
+      drillMembers: [datetime],
+    },
   },
-  
+
   dimensions: {
+    idDateTime: {
+      sql: `${CUBE}.ID_DATETIME`,
+      type: `number`,
+      primaryKey: true,
+      shown: false,
+    },
+
     msg: {
       sql: `${CUBE}."MSG"`,
-      type: `string`
+      type: `string`,
+      shown: false,
     },
-    
+
     datetime: {
       sql: `${CUBE}."DATETIME"`,
-      type: `string`
-    }
-  }
+      type: `time`,
+    },
+  },
 });
