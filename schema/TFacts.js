@@ -81,7 +81,7 @@ cube(`TFacts`, {
       type: `string`,
     },
 
-    liked: {
+    recommended: {
       sql: `${CUBE}."RECOMMENDED"`,
       type: `number`,
     },
@@ -94,6 +94,7 @@ cube(`TFacts`, {
     idDateTime: {
       sql: `${CUBE}."ID_DATETIME"`,
       type: `number`,
+      shown: false,
     },
   },
 });

@@ -6,7 +6,7 @@ cube(`TDatetimes`, {
   measures: {
     count: {
       type: `count`,
-      drillMembers: [datetime],
+      drillMembers: [idDateTime],
     },
   },
 
@@ -24,7 +24,7 @@ cube(`TDatetimes`, {
       shown: false,
     },
 
-    datetime: {
+    date: {
       sql: `${CUBE}."DATETIME"`,
       type: `time`,
     },
